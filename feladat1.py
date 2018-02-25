@@ -308,3 +308,46 @@ def main():
 if __name__=='__main__':
     main()
 
+def feladat_24():
+    szam=int(input("Adj egy számot:"))
+    maradek5=0
+    maradek7=0
+    while szam!=0:
+        szam = int(input("Adj egy számot:"))
+        if szam%7==5:
+            maradek5+=1
+        elif szam%13==7:
+            maradek7+=1
+    return maradek5,maradek7
+
+
+def main():
+    print(feladat_24())
+
+if __name__=='__main__':
+    main()
+
+def feladat_25():
+    lakosok=int(input("lakosok száma:"))
+    terulet=int(input("terület:"))
+    nepsuruseg=lakosok//terulet
+    if nepsuruseg<=50:
+        return (nepsuruseg,"Ritkán lakott terület")
+    elif nepsuruseg>=50 and nepsuruseg<300:
+        return(nepsuruseg,"Átlagos népsűrűségű")
+    else:
+        return(nepsuruseg,"Sűrűn lakott terület")
+def main():
+    print(feladat_25())
+if __name__=="__main__":
+    main()
+
+def feladat_32(n1,n2,k):
+    for i in range(n1,n2):
+        if i%k==0:
+            print(i)
+            i+=1
+def main():
+    feladat_32(2,23,3)
+if __name__=="__main__":
+    main()
