@@ -1,3 +1,4 @@
+
 def feladat_1(a, b):
     a = a + b
     b = a - b
@@ -10,6 +11,27 @@ def main():
 
 
 if __name__ == '__main__':
+    main()
+
+def feladat_2():
+    a=4
+    b=-423
+    c=-7
+    if a<=b<=c:
+        print(a,b,c)
+    elif a<=c<=b:
+        print(a,c,b)
+    elif b<=a<=c:
+        print(b,a,c)
+    elif b<=c<=a:
+        print(b,c,a)
+    elif c<=a<=b:
+        print(c,a,b)
+    elif c<=b<=a:
+        print(c,b,a)
+def main():
+    feladat_2()
+if __name__=='__main__':
     main()
 
 
@@ -94,6 +116,18 @@ def main():
 if __name__ == '__main__':
     main()
 
+def feladat_7(hossz,szelesség,drothossz):
+    maradek=drothossz-((hossz+szelesség)*2)
+    szukseges=drothossz-maradek
+    if maradek<0 or szukseges<0:
+        print("Nem megfelelő hosszú a drót")
+    else:
+        print(maradek,szukseges)
+def main():
+    feladat_7(5,4,16)
+if __name__=='__main__':
+    main()
+
 
 def feladat_8(x):
     if x < 5:
@@ -113,14 +147,41 @@ def feladat_8b(a, b, c, d):
     else:
         Eabcd = 4
     return Eabcd
-
-
 def main():
     print(feladat_8(-3), feladat_8b(2, 4, 7, 9))
-
-
 if __name__ == '__main__':
     main()
+
+
+def feladat_9(a,b,c):
+    x1=0
+    x2=0
+
+    D=b*b-(4*a*c)
+    if a==0 and b==0 and c==0:
+        return ("Minden x eleme R megoldás")
+    elif a==0 and b==0 and c!=0:
+        return ("Nincs megoldás")
+    elif a==0 and b!=0:
+        x1=-1*(c/b)
+        return x1
+    elif a!=0:
+        if D>0:
+            x1=(-1*b+D*0.5)/2*a
+            x2=(-1*b-D*0.5)/2*a
+            return x1,x2
+        elif D==0:
+            x1=-1*(b/2*a)
+            x2=-1*(b/2*a)
+            return x1,x2
+        elif D<0:
+            return ("Nincs megoldás")
+
+def main():
+    print(feladat_9(2,4,-3))
+if __name__=='__main__':
+    main()
+
 
 
 def feladat_10(a, b):
@@ -199,6 +260,17 @@ def feladat_14(sorszam):
 def main():
     print(feladat_14(98))
 
+if __name__=='__main__':
+    main()
+
+def feladat_15(a,b):
+    hanyados=0
+    while a>=b:
+        hanyados=hanyados+1
+        a=a-b
+    return hanyados
+def main():
+    print(feladat_15(9,2))
 if __name__=='__main__':
     main()
 
@@ -308,6 +380,23 @@ def main():
 if __name__=='__main__':
     main()
 
+def feladat_23(n):
+    li=[]
+    i=1
+    while len(li)!=n:
+        osszeg=0
+        for j in range(1,int(i/2)+1):
+            if i%j==0:
+                osszeg+=j
+        if osszeg==i:
+            li.append(i)
+        i+=1
+    print(li)
+def main():
+    feladat_23(4)
+if __name__=='__main__':
+    main()
+
 def feladat_24():
     szam=int(input("Adj egy számot:"))
     maradek5=0
@@ -319,11 +408,8 @@ def feladat_24():
         elif szam%13==7:
             maradek7+=1
     return maradek5,maradek7
-
-
 def main():
     print(feladat_24())
-
 if __name__=='__main__':
     main()
 
@@ -342,6 +428,128 @@ def main():
 if __name__=="__main__":
     main()
 
+def feladat_26():
+    a=1
+    osszeg=0
+    pozitiv=0
+    negativ=0
+    while a!=0:
+        a=int(input("Adj egy számot:"))
+        osszeg+=a
+        print(osszeg)
+        if a>0:
+            pozitiv+=1
+        elif a<0:
+            negativ+=1
+        elif a==0:
+            break
+    return(" {0} db pozitív szám és {1} db negatív szám van".format(pozitiv,negativ))
+def main():
+    print(feladat_26())
+if __name__=='__main__':
+    main()
+
+def feladat_28(n):
+    li=[]
+    for i in range(1,n+1):
+        k=i**0.5
+        if k==int(k):
+            li.append(i)
+
+    return li[-1]
+def main():
+    print(feladat_28(50))
+if __name__=='__main__':
+    main()
+
+
+def feladat_29(n):
+    f=1
+    for i in range(1,n+1):
+        if n>0 and n<12:
+            f=f*i
+        else:
+            return ("Nem megfelelő szám")
+    return f
+def main():
+    print(feladat_29(6))
+if __name__=='__main__':
+    main()
+
+def felafat_30():
+    osszeg=0
+    datum=input("Adjon meg egy dátumot:")
+    li=datum.split(".")
+    ev=int(li[0])
+    honap=li[1]
+    nap=int(li[2])
+    if honap=='01':
+        osszeg=nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=="02":
+        osszeg=31+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=='03':
+        osszeg=59+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=='04':
+        osszeg=90+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=='05':
+        osszeg=120+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=='06':
+        osszeg=151+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=='07':
+        osszeg=181+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap=='08':
+        osszeg=212+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg+=1
+    elif honap=='09':
+        osszeg=243+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap==10:
+        osszeg=273+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap==11:
+        osszeg=304+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    elif honap==12:
+        osszeg=334+nap
+        if int(li[0])%4==0 and int(li[0])%100!=0 or int(li[0])%400==0:
+            osszeg==1
+    return("{0}. napja az adott évnek".format(osszeg))
+
+
+def main():
+    print(felafat_30())
+if __name__=='__main__':
+    main()
+
+def feladat_31():
+    n=1000
+    for i in range(1,n+1):
+        if n%i==0:
+            print(i)
+            i+=1
+def main():
+    feladat_31()
+if __name__=='__main__':
+    main()
+
 def feladat_32(n1,n2,k):
     for i in range(n1,n2):
         if i%k==0:
@@ -350,4 +558,86 @@ def feladat_32(n1,n2,k):
 def main():
     feladat_32(2,23,3)
 if __name__=="__main__":
+    main()
+
+def feladat_33(n):
+    maxdb=0
+    szam=0
+    for i in range(1,n+1):
+        db=0
+        for j in range(1,int(i/2)+1):
+            if i%j==0:
+                db+=1
+        if db>maxdb:
+            maxdb=db
+            szam=i
+    return szam
+def main():
+    print(feladat_33(9))
+if __name__=='__main__':
+    main()
+
+
+def feladat_36(n):
+    a=0
+    b=1
+    li=[]
+    while b<n:
+        li.append(b)
+        a, b=b, a+b
+    return len(li)
+
+def main():
+    print(feladat_36(300))
+if __name__=='__main__':
+    main()
+
+def feladat_37(n):
+    a=0
+    b=1
+    li=[]
+    i=0
+    uj_lst=[]
+    while b<n*2:
+        li.append(b)
+        a, b=b, a+b
+    for i in li:
+        if i>n:
+            uj_lst.append(i)
+    return uj_lst[0]
+def main():
+    print(feladat_37(600))
+if __name__=='__main__':
+    main()
+
+
+def feladat_38():
+    db=0
+    szamjegyek=input("Adjon meg 9 számjegyből alló számot:")
+    szam=input("Adjon meg egy számjegyet:")
+    for i in szamjegyek[0:10]:
+        if szam==i:
+            db+=1
+        elif len(szamjegyek)>9:
+            return("Hibás szám")
+        elif szam!=i:
+            return ("A számjegy nem fordul elő a számban")
+    return db
+def main():
+    print(feladat_38())
+if __name__=='__main__':
+    main()
+
+def feladat_39():
+    li=[]
+    for i in range(1,1000):
+        harmadik=i%10
+        masodik=i%100-harmadik
+        elso=i//100
+        if i==elso**3+masodik**3+harmadik**3:
+            li.append(i)
+    return li
+def main():
+    print(feladat_39())
+if __name__=='__main__':
     main()
